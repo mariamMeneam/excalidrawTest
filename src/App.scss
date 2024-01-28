@@ -1,0 +1,109 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+
+  .comment-avatar {
+    background: #faa2c1;
+    border-radius: 66px 67px 67px 0px;
+    width: 2rem;
+    height: 2rem;
+    padding: 4px;
+    margin: 4px;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+}
+
+.button-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+display: inline-block;
+align-items: flex-start;
+
+}
+.button-wrapper button {
+  // z-index: 1;
+  // height: 40px;
+  // max-width: 200px;
+  // margin: 10px;
+  // padding: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 10px 0;
+  background-color: azure;
+color: #414141;
+margin-top: 10px; 
+width: 200px;
+}
+
+.excalidraw .App-menu_top .buttonList {
+  display: flex;
+}
+
+.excalidraw-wrapper {
+  height: 580px;
+  width: 79%;
+  display: inline-block;
+  border: 1px solid lightsalmon;
+  border-radius: 10px;
+  // margin: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+div[data-testid ="canvas-background-label"]{
+  text-align: left;
+}
+
+:root[dir="ltr"]
+  .excalidraw
+  .layer-ui__wrapper
+  .zen-mode-transition.App-menu_bottom--transition-left {
+  transform: none;
+}
+
+.excalidraw .panelColumn {
+  text-align: left;
+}
+
+.mt-1{
+  margin-top: 1rem
+}
+
+.export-wrapper {
+  // display: flex;
+  // flex-direction: column;
+  margin: 50px;
+
+  &__checkbox {
+    display: flex;
+  }
+}
+
+.help-icon{
+  display: none !important;
+}
+
+.excalidraw {
+  --color-primary: #6965db;
+  --color-primary-darker: #5b57d1;
+  --color-primary-darkest: #4a47b1;
+  --color-primary-light: #e3e2fe;
+
+  button.custom-element {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 8px;
+  }
+
+  .custom-footer,
+  .custom-element {
+    padding: 0.1rem;
+  }
+}
