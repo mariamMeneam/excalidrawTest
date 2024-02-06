@@ -130,26 +130,48 @@ export default function App() {
     
     // excalidrawAPI.updateLibrary({ libraryItems: newLibraryItems });
     const fetchData = async () => {
-      const res = await fetch("/rocket.jpeg");
-      const imageData = await res.blob();
-      const reader = new FileReader();
-      reader.readAsDataURL(imageData);
+      const res = await fetch("http://localhost:3000/whiteboaredtest.excalidraw");
+      // const blob = new Blob([res.url], { type: 'application/json' });
+      // const blobURL = URL.createObjectURL(blob);
+      console.log("resssssssss" , res );
+      // console.log("resssssssss" ,  res.text());
+     
 
-      reader.onload = function () {
-        const imagesArray: BinaryFileData[] = [
-          {
-            id: "rocket" as BinaryFileData["id"],
-            dataURL: reader.result as BinaryFileData["dataURL"],
-            mimeType: MIME_TYPES.jpg,
-            created: 1644915140367,
-            lastRetrieved: 1644915140367,
-          },
-        ];
+      // const reader = new FileReader();
+      const content = await res.text();
+      console.log(content);
+        // Parse the JSON string to an object
+        const parsedData = JSON.parse(content);
 
-        //@ts-ignore
-        initialStatePromiseRef.current.promise.resolve(initialData);
-        excalidrawAPI.addFiles(imagesArray);
-      };
+        // Convert the object back to a JSON string
+        const jsonString = JSON.stringify(parsedData);
+
+        // Convert the JSON string to a Blob
+        const contentBlob = new Blob([jsonString], { type: 'application/json' });
+      
+      // const imageData = await res.blob();
+      // const contentURL = URL.createObjectURL(imageData);
+      // console.log("resssssssss" , reader.readAsDataURL(imageData)
+      // );
+      // reader.readAsDataURL(imageData);
+      // const scene = await loadFromBlob(contentBlob, null, null);
+      // excalidrawAPI.updateScene(parsedData);
+ //@ts-ignore
+ initialStatePromiseRef.current.promise.resolve( JSON.parse(content));
+      // reader.onload = function () {
+      //   const imagesArray: BinaryFileData[] = [
+      //     {
+      //       id: "rocket" as BinaryFileData["id"],
+      //       dataURL: reader.result as BinaryFileData["dataURL"],
+      //       mimeType: MIME_TYPES.jpg,
+      //       created: 1644915140367,
+      //       lastRetrieved: 1644915140367,
+      //     },
+      //   ];
+
+       
+      //   excalidrawAPI.addFiles(imagesArray);
+      // };
     };
     fetchData();
   }, [excalidrawAPI]);
